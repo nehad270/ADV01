@@ -22,21 +22,16 @@ namespace ADV01
 
         public bool IsInRange(T value)
         {
-            return value.CompareTo(Min) >= 0 && value.CompareTo(Max) <= 0;
+            return Min.CompareTo(value) > 0&& Max.CompareTo(value) > 0;
+            //return value.CompareTo(Min) >= 0 && value.CompareTo(Max) <= 0;
         }
 
         public double Length()
         {
-            try
-            {
-                dynamic min = Min;
-                dynamic max = Max;
-                return (double)(max - min);
-            }
-            catch
-            {
-                throw new InvalidOperationException("Length calculation only supported for numeric types.");
-            }
-        }
+
+            dynamic min = Min;
+            dynamic max = Max;
+            return (double)(max - min);
+        }  
     }
 }
